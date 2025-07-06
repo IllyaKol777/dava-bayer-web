@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Додати товар</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body style="background-color: #f8f9fa;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">DAVA.BAYER Адмінка</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="mb-4 text-center">Додати новий товар</h1>
+        <form method="POST" enctype="multipart/form-data" class="shadow p-4 bg-white rounded">
+            <div class="mb-3">
+                <label class="form-label">Категорія</label>
+                <select name="category" class="form-select" required>
+                    {% for category in categories %}
+                    <option value="{{ category }}">{{ category }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Назва</label>
+                <input type="text" name="name" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Опис</label>
+                <textarea name="description" class="form-control"></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Фото (завантажити)</label>
+                <input type="file" name="photo" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Ціна</label>
+                <input type="number" name="price" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success">Додати товар</button>
+            <a href="/" class="btn btn-secondary">Назад</a>
+        </form>
+    </div>
+</body>
+</html>

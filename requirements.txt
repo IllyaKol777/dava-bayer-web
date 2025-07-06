@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+jinja2
+aiofiles
+python-multipart
+aiogram
+gunicorn
+markupsafe
+python-dotenv
