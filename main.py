@@ -118,6 +118,13 @@ async def delete_product_route(product_id: int, db: Session = Depends(get_db)):
     delete_product(db, product)
     return RedirectResponse(url="/", status_code=303)
 
+@app.get("/image/{filename}")
+async def get_image(filename: str):
+    file_path = os.path.join(UPLOAD_FOLDER, filename)
+    if not os.path.exists(file_path):
+        raise HTTPException(status_code=404, detail="Файл не знайдено")
+    return FileResponse(file_path)
+
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=5000, reload=True)
